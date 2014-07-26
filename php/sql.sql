@@ -37,3 +37,14 @@ CREATE TABLE user_response(
 	cel varchar(10) not null,
 	FOREIGN KEY(idrequest) REFERENCES org_request(id)	
 );
+
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(1, 13.507937, -88.869846, 5, 63057971, 114, 6);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(2, 13.708906, -89.208857, 12, 63057971, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(3, 13.712575, -89.161822, 53, 74226531, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(4, 13.690227, -89.265849, 48, 63057971, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(5, 13.668044, -89.236667, 4, 74226531, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(6, 13.719246, -89.190318, 134, 63057971, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(7, 13.830480, -89.372830, 99, 74226531, 65, 4);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(8, 13.708906, -89.208857, 85, 63057971, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(9, 13.690227, -89.265849, 65, 74226531, 193, 10);
+INSERT INTO user_info(iduser, latitude, longitude, area, cel, city, estate) VALUES(10, 13.719246, -89.190318, 22, 63057971, 193, 10);
