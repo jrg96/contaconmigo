@@ -38,4 +38,16 @@
 		return $citieSelect;
 	}
 
+	function typesOrg(){
+		$types=getData("civil_organization_types/index.xml");
+
+		$typeSelect="<select>";
+		foreach ($types as $single) {
+			$typeSelect.="<option value=".$single->id.">".$single->name."</option>";
+		}
+		$typeSelect.="</select>";
+
+		return $typeSelect;
+	}
+
 ?>
