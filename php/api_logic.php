@@ -1,4 +1,6 @@
 <?php 
+	header('Content-Type: text/html; charset=utf-8');
+
 	function getData($path){
 		$myCurl=curl_init();
 		curl_setopt($myCurl, CURLOPT_URL, "http://api.gobiernoabierto.gob.sv/".$path."/index.xml");
@@ -11,5 +13,18 @@
 
 		return $xml;
 	}
+
+	function getStates(){
+		$states=getData('states');
+
+		$stateSelect="<select>";
+		foreach ($states as $single) {
+			$stateSelect.="<option value=".$single->id.">".$single->name."</option>";
+		}
+		$stateSelect.="</select>";
+
+		return $stateSelect;
+	}
+
 
 ?>
