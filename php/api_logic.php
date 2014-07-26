@@ -50,4 +50,33 @@
 		return $typeSelect;
 	}
 
+	function orgByType($type){
+		$organization=array();
+		$page=0;
+		$index=0;
+
+		do {
+			$page++;
+			$index=0;
+			$orgs=getData("civil_organizations/index.xml?q[civil_organization_type_id_eq]=".$type."&per_page=100&page=".$page);
+
+			foreach ($orgs as $org) {
+				$index++;
+				$actIndex=($page*100)-100+$index;
+				$organization[$actIndex]=array();
+				$organization[$actIndex][0]=$org->id;
+				$organization[$actIndex][1]=$org->name;
+				$organization[$actIndex][2]=$org->address;
+				$organization[$actIndex][3]=$org->phone;
+				$organization[$actIndex][4]=$org->manager;
+				$organization[$actIndex][5]=$org->slug;
+				$organization[$actIndex][6]=$org->email;
+				$organization[$actIndex][7]=$org->civil_organization_type_id;
+			}
+
+		} while($index==100);
+
+		return $organization;
+	}
+
 ?>
