@@ -19,6 +19,13 @@
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
+			
+	    var LatLong = new google.maps.LatLng(13.685449, -89.239938);
+		var marker = new google.maps.Marker({
+			position: LatLong,
+			map: map,
+			title:"Aqui desde casa presidencial :D"
+		});
       }
     </script>
   </head>
