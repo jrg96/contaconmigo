@@ -109,13 +109,21 @@
 	}
 
 	function orgDataById($id){
+		$organizationData=array();
 		$orgData=getData("civil_organizations/index.xml?&q[id_eq]=".$id);
 
 		foreach ($orgData as $single) {
-			$typeSelect.="<option value=".$single->id.">".$single->name."</option>";
+			$organizationData[0]=$single->address;
+			$organizationData[1]=$single->civil_organization_type_id;
+			$organizationData[2]=$single->email;
+			$organizationData[3]=$single->id;
+			$organizationData[4]=$single->manager;
+			$organizationData[5]=$single->name;
+			$organizationData[6]=$single->phone;
+			$organizationData[7]=$single->slug;
 		}
 		
-		return $typeSelect;
+		return $organizationData;
 	}
 
 	function orgDataInfoByStateFromDB($state){
