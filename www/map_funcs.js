@@ -9,7 +9,10 @@ function addOrg(lat, lng, radio, name){
 	markers.push(marker);
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		alert(mark_id[marker.getTitle()]);
+		//alert(mark_id[marker.getTitle()]);
+		$('#info-content').show('slow');
+		
+
 	});
 	
 	var coverArea = {

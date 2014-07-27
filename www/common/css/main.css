@@ -23,6 +23,54 @@ body {
 	background-color: transparent;
 }
 
+.content {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	z-index: 2;
+	display: none;
+	background-color: #34495e;
+	opacity: 0.9;
+}
+
+#close:hover {
+	color: #3498db;
+}
+
+#close:active {
+	color: #2980b9;
+}
+.content h1 {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#info-content {
+	color: white;
+	height: auto;
+}
+
+.info-need {
+	overflow: auto;
+	width: auto;
+	height: 315px;
+}
+.content label {
+
+	font-size: 20px;
+}
+
+.info li {
+	text-decoration: none;
+
+}
+ul
+{
+	list-style-type: none;
+}
+
 @media (max-width: 996px) {
 	.searching {
 		height: 155px;
