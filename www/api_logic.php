@@ -229,4 +229,21 @@
 		}
 		return $less;
 	}
+
+	function  requestById($id){
+		$requests=array();
+		$index=0;
+
+		$sql = "SELECT id, title, description FROM org_request WHERE iduser='".$id."'";
+	    
+	    foreach ($GLOBALS['dbh']->query($sql) as $row){
+	    	$index++;
+			$requests[$index]=array();
+			$requests[$index][0]=$row['id'];
+			$requests[$index][1]=$row['title'];
+			$requests[$index][2]=$row['description'];
+		}
+
+		return $requests;
+	}
 ?>
