@@ -1,6 +1,13 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
 
+	$GLOBALS['dbh'] = null;
+	try {
+    	$GLOBALS['dbh'] = new PDO("mysql:host=localhost;dbname=cuenta_conmigo", "root", "codersv");
+    }catch(PDOException $e){
+    	$GLOBALS['dbh'] =$e->getMessage();
+    }
+
 	function getData($path){
 		$myCurl=curl_init();
 		curl_setopt($myCurl, CURLOPT_URL, "http://api.gobiernoabierto.gob.sv/".$path);
@@ -99,6 +106,51 @@
 		}
 
 		return $organization;
+	}
+
+	function orgDataById($id){
+		$orgData=getData("civil_organizations/index.xml?&q[id_eq]=".$id);
+
+		foreach ($orgData as $single) {
+			$typeSelect.="<option value=".$single->id.">".$single->name."</option>";
+		}
+		
+		return $typeSelect;
+	}
+
+	function orgDataInfoByStateFromDB($state){
+		$organizations=array();
+		$index=0;
+
+		$sql = "SELECT * FROM user_info WHERE estate='".$state."'";
+	    
+	    foreach ($GLOBALS['dbh']->query($sql) as $row){
+	    	$index++;
+			$organizations[$index]=array();
+			$organizations[$index][0]=$row['id'];
+			$organizations[$index][1]=$row['iduser'];
+			$organizations[$index][2]=$row['latitude'];
+			$organizations[$index][3]=$row['longitude'];
+			$organizations[$index][4]=$row['area'];
+			$organizations[$index][5]=$row['cel'];
+			$organizations[$index][6]=$row['city'];
+			$organizations[$index][7]=$row['estate'];
+
+			$orgData=getData("civil_organizations/index.xml?&q[id_eq]=".$organizations[$index][0]);
+
+			foreach ($orgData as $single) {
+				$organizations[$index][8]=$single->address;
+				$organizations[$index][9]=$single->civil_organization_type_id;
+				$organizations[$index][10]=$single->email;
+				$organizations[$index][11]=$single->manager;
+				$organizations[$index][12]=$single->name;
+				$organizations[$index][13]=$single->phone;
+				$organizations[$index][14]=$single->slug;
+			}
+
+	    }
+
+	    return $organizations;
 	}
 
 ?>
