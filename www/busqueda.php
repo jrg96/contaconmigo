@@ -31,7 +31,8 @@
 		}
     </script>
 	<script src="map_funcs.js"></script>
-	<script src="test.js"></script>
+	<script src="jquery.js"></script>
+	<script src="busqueda_logic.js"></script>
   </head>
   <body onload="initialize()">
 	<!--Menu -->
