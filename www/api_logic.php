@@ -199,4 +199,13 @@
 		return $refuges;
 	}
 
+	function insertRequest($user,$title,$desc,$quantity){
+		$insertReq = $GLOBALS['dbh']->exec("INSERT INTO org_request(iduser, title, description, quantity, visible) VALUES ('".$user."', '".$title."', '".$desc."', '".$quantity."','1')");
+		return $insertReq;	
+	}
+
+	function insertResonse($idRequest,$desc,$email,$cel){
+		$insertRes = $GLOBALS['dbh']->exec("INSERT INTO user_response(idrequest, description, email, cel) VALUES ('".$idRequest."', '".$desc."', '".$email."', '".$cel."')");
+		return $insertRes;	
+	}
 ?>
