@@ -153,4 +153,42 @@
 	    return $organizations;
 	}
 
+
+	function refuges(){
+		$refuges=array();
+		$page=0;
+		$index=0;
+
+		do {
+			$page++;
+			$index=0;
+			$refuge=getData("refuges/index.xml?per_page=100&page=".$page);
+
+			foreach ($refuge as $ref) {
+				$index++;
+				$actIndex=($page*100)-100+$index;
+				$refuges[$actIndex]=array();
+				$refuges[$actIndex][0]=$ref->address;
+				$refuges[$actIndex][1]=$ref->city_id;
+				$refuges[$actIndex][2]=$ref->contact_person;
+				$refuges[$actIndex][3]=$ref->families_capacity;
+				$refuges[$actIndex][4]=$ref->has_bathroom;
+				$refuges[$actIndex][5]=$ref->has_communication;
+				$refuges[$actIndex][6]=$ref->has_electricity;
+				$refuges[$actIndex][7]=$ref->has_toilet;
+				$refuges[$actIndex][8]=$ref->has_water;
+				$refuges[$actIndex][9]=$ref->has_toilet;
+				$refuges[$actIndex][10]=$ref->id;
+				$refuges[$actIndex][11]=$ref->kind;
+				$refuges[$actIndex][12]=$ref->name;
+				$refuges[$actIndex][13]=$ref->people_capacity;
+				$refuges[$actIndex][14]=$ref->phone;
+				$refuges[$actIndex][15]=$ref->slug;	
+			}
+
+		} while($index==100);
+
+		return $refuges;
+	}
+
 ?>
