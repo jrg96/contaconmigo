@@ -204,8 +204,13 @@
 		return $insertReq;	
 	}
 
-	function insertResonse($idRequest,$desc,$email,$cel){
+	function insertResponse($idRequest,$desc,$email,$cel){
 		$insertRes = $GLOBALS['dbh']->exec("INSERT INTO user_response(idrequest, description, email, cel) VALUES ('".$idRequest."', '".$desc."', '".$email."', '".$cel."')");
 		return $insertRes;	
+	}
+
+	function setVisibility($id,$state){
+		$updateVis=$GLOBALS['dbh']->exec("UPDATE org_request SET visible='".$state."' WHERE id='".$id."'");
+		return $updateVis;
 	}
 ?>
