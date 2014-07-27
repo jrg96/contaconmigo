@@ -29,7 +29,11 @@ function deleteOrgs(){
 		markers[i].setMap(null);
 	}
 	
+	markers = [];
+	
 	for (var i=0; i<circles.length; i++){
 		circles[i].setMap(null);
 	}
+	
+	circles = [];
 }
