@@ -19,20 +19,12 @@ body {
 
 .searching {
 	width: 100%;
-	height: 150px;
+	height: 100px;
 	background-color: transparent;
-	padding-left: 300px;
-	padding-right: 300px;
 }
 
-.map {
-	width: 100%;
-	height: 100%;
-}
-
-@media (max-width: 970px) {
+@media (max-width: 996px) {
 	.searching {
-		padding-right: 50px;
-		padding-left: 50px;
+		height: 155px;
 	}
 }
