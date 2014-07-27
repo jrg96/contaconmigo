@@ -1,8 +1,17 @@
 <?php
 	session_start();
 	
+	include 'api_logic.php';
+	
 	if (!isset($_SESSION['id_org'])){
 		header('Location: login.php');
+	}
+	
+	$requests = requestById($_SESSION['id_org']);
+	$list = "";
+	
+	foreach($requests as $req){
+		$list .= '<li><span class="glyphicon glyphicon-ok">' . $req[0] . '-' . $req[1] . '<br />' . $req[2] . '</span></li>';
 	}
 ?>
 
@@ -22,15 +31,14 @@
 	</section>
 
 	<div class="content" id="info-content">
-		<span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span>
+
+		<a href="logout.php"><span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span></a>
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 			<h1>Recursos que necesito</h1>
 			<br>
 				<div class="col-lg-offset-2 info-need">
 					<ul id="req-list">
-						<li><span class="glyphicon glyphicon-ok"></span></li>
-						<li><span class="glyphicon glyphicon-ok"></span></li>
-						<li><span class="glyphicon glyphicon-ok"></span></li>
+						<?php echo $list; ?>
 					</ul>
 				</div>
 			</div>
