@@ -3,11 +3,16 @@
 	
 	include 'api_logic.php';
 	
+	if (isset($_SESSION['id_org'])){
+		header('Location: adminpanel.php');
+	}
+	
 	if (isset($_POST["btn_submit"])){
 		$status = login($_POST["txt_name"], $_POST["txt_password"]);
 		
 		if($status != null){
 			$_SESSION['id_org'] = $status['id'];
+			header('Location: adminpanel.php');
 		}
 	}
 	
