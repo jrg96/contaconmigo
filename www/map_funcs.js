@@ -9,7 +9,7 @@ function addOrg(lat, lng, radio, name){
 	markers.push(marker);
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		
+		alert(mark_id[marker.getTitle()]);
 	});
 	
 	var coverArea = {
@@ -40,4 +40,5 @@ function deleteOrgs(){
 	}
 	
 	circles = [];
+	mark_id = {};
 }

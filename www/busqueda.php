@@ -19,6 +19,7 @@
 		var map = null;
 		var markers = [];
 		var circles = [];
+		var mark_id = {};
 		
 		function initialize() {
 			var mapOptions = {
