@@ -40,7 +40,7 @@ body {
 #close:active {
 	color: #2980b9;
 }
-.content h1 {
+.content h1, h4 {
 	color: white;
 	font-weight: bold;
 	text-align: center;

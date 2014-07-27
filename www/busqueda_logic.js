@@ -17,4 +17,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$("#close").click(function(){
+		$("#info-content").css({display: "none", });
+	});
 });

@@ -20,9 +20,9 @@ function addOrg(lat, lng, radio, name){
 			$("#manager").html(data[1]);
 			$("#phone").html(data[2]);
 			$("#mail").html(data[3]);
+			$("#org-name").html(marker.getTitle());
+			$('#info-content').show('slow');
 		});
-		
-		$('#info-content').show('slow');
 	});
 	
 	var coverArea = {

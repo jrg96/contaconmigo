@@ -43,7 +43,7 @@
 	<div class="content" id="info-content">
 		<span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span>
 		<div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-5 col-xs-12 ">
-			<h1 align="center">Nombre de organizacion</h1>
+			<h4 align="center" id="org-name">Nombre de organizacion</h4>
 			<br>
 			<div class="col-lg-offset-2 info">
 				<span class="glyphicon glyphicon-road"></span>
