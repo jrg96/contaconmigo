@@ -25,7 +25,19 @@ function addOrg(lat, lng, radio, name){
 			$.ajax({
 				url: "php_helpers/get_org_req.php?id=" + id,
 			}).done(function(data2) {
-				alert(data2);
+				data2 = data2.split("|");
+				
+				var index = 0;
+				var str="";
+				
+				while (index < data2.length && data2[index] != ""){
+					str += '<li><span class="glyphicon glyphicon-ok">';
+					str += '<input style="border: solid 1px green" type="radio" name="req" value="' + data2[index + 0] + '">' + data2[index+1] + "<br />" + data2[index + 2] + "";
+					str += '</span></li>';
+					index += 3;
+				}
+				
+				$("#req-list").html(str);
 			});
 			
 			

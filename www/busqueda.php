@@ -1,4 +1,9 @@
-<?php include 'api_logic.php';?>
+<?php include 'api_logic.php';
+
+	if (isset($_POST["txt_mail"])){
+	}
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -41,6 +46,7 @@
 		<center><img class="logo" class="pull-left" src="common/img/logo.png" title="ContaConmigo"></center>
 	</section>
 	<div class="content" id="info-content">
+		<form action="busqueda.php" method="POST">
 		<span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span>
 		<div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-5 col-xs-12 ">
 			<h4 align="center" id="org-name">Nombre de organizacion</h4>
@@ -68,7 +74,7 @@
 			<h1>Recursos a necesitar</h1>
 			<br>
 			<div class="col-lg-offset-2 info-need">
-				<ul>
+				<ul id="req-list">
 					<li><span class="glyphicon glyphicon-ok"></span></li>
 					<li><span class="glyphicon glyphicon-ok"></span></li>
 					<li><span class="glyphicon glyphicon-ok"></span></li>
@@ -84,32 +90,27 @@
 			<br>
 			<div>
 				<div class="col-lg-4">
-					<form>
 						<label>Nombre*:</label>
-							<input type="text" class="form-control" placeholder="Nombre" required/>
+						<input id="txt_name" type="text" class="form-control" placeholder="Nombre" required/>
 				</div>
 				<div class="col-lg-4">
-					<form>
-						<label>Telefono*:</label>
-							<input type="text" class="form-control" placeholder="Telefono" required/>
-					</form>
+					<label>Telefono*:</label>
+					<input id="txt_phone" type="text" class="form-control" placeholder="Telefono" required/>
 				</div>
 				<div class="col-lg-4">
-					<form>
-						<label>Correo:</label>
-							<input type="mail" class="form-control" placeholder="Correo"/>
-					</form>
+					<label>Correo:</label>
+					<input id="txt_mail" type="mail" class="form-control" placeholder="Correo"/>
 				</div>
 				<div class="col-lg-12">
 					<label>Mensaje:</label>
-					<textarea  class="form-control" max-length="130" placeholder="Mensaje..." required></textarea>
+					<textarea id="txt_msg"  class="form-control" max-length="130" placeholder="Mensaje..." required></textarea>
 					<br>
-					<button class="btn btn-lg btn-success pull-right" type="submit">Enviar</button>
+					<button class="btn btn-lg btn-success pull-right" type="submit">Contá Conmigo</button>
 					<br>
 					<br>
 					<br>
 				</div>
-			</form>
+		</form>
 			</div>
 		</div>
 	</div>
