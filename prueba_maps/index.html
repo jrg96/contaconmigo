@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	<script src="jquery.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
@@ -11,16 +12,19 @@
       src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBYuhiS0SauIzg3yLxlsIlF4knSwrIW_cU&sensor=true">
     </script>
     <script type="text/javascript">
+		var map = null;
+		var markers = [];
+		var circles = [];
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(13.685449, -89.239938),
           zoom: 18,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
+        map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
 			
-	    var LatLong = new google.maps.LatLng(13.685449, -89.239938);
+	    /*var LatLong = new google.maps.LatLng(13.685449, -89.239938);
 		var marker = new google.maps.Marker({
 			position: LatLong,
 			map: map,
@@ -38,11 +42,14 @@
 			radius: 100
 		};
 		
-		cityCircle = new google.maps.Circle(populationOptions);
+		cityCircle = new google.maps.Circle(populationOptions);*/
       }
     </script>
+	<script src="test.js"></script>
   </head>
   <body onload="initialize()">
-    <div id="map_canvas" style="width:100%; height:100%"></div>
+	<a id="test_btn" href="#">test AJAX</a>
+	<a id="test_btn2" href="#">test AJAX2</a>
+    <div id="map_canvas" style="width:100%; height:80%"></div>
   </body>
 </html>
