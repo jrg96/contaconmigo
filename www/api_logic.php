@@ -257,4 +257,20 @@
 
 		return $requests;
 	}
+	
+	function selectResponses($id_org){
+		$requests=array();
+		$index=0;
+		
+		$sql = "SELECT * FROM user_response WHERE idrequest IN (SELECT id FROM org_request WHERE iduser='$id_org')";
+		foreach ($GLOBALS['dbh']->query($sql) as $row){
+	    	$index++;
+			$requests[$index]=array();
+			$requests[$index][0]=$row['description'];
+			$requests[$index][1]=$row['email'];
+			$requests[$index][2]=$row['cel'];
+		}
+		
+		return $requests;
+	}
 ?>

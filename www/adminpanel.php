@@ -7,6 +7,16 @@
 		header('Location: login.php');
 	}
 	
+	$org_name = orgDataById($_SESSION['id_org']);
+	$org_name = $org_name[5];
+	
+	$arr = selectResponses($_SESSION['id_org']);
+	$list2 = "";
+	
+	foreach($arr as $res){
+		$list2 .= '<li><span class="glyphicon glyphicon-ok">' . $res[0] . '<br />' . $res[1] . '<br />' . $res[2]  . '</span></li><br />';
+	}
+	
 	if (isset($_POST['btn_submit'])){
 		insertRequest($_SESSION['id_org'], $_POST['txt_title'], $_POST['txt_description'], 0);
 	}
@@ -15,7 +25,7 @@
 	$list = "";
 	
 	foreach($requests as $req){
-		$list .= '<li><span class="glyphicon glyphicon-ok">' . $req[0] . '-' . $req[1] . '<br />' . $req[2] . '</span></li>';
+		$list .= '<li><span class="glyphicon glyphicon-ok">' . $req[0] . '-' . $req[1] . '<br />' . $req[2]  . '</span></li><br />';
 	}
 ?>
 
@@ -34,7 +44,10 @@
 		<center><img class="logo" class="pull-left" src="common/img/logo.png" title="ContaConmigo"></center>
 	</section>
 
-	<div class="content" id="info-content">
+	<div class="content clearfix" id="info-content">
+		<div class="col-md-12 col-xs-12">
+			<center><h3><?php echo $org_name; ?></h3></center>
+		</div>
 
 		<a href="logout.php"><span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span></a>
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
@@ -45,7 +58,7 @@
 						<?php echo $list; ?>
 					</ul>
 				</div>
-			</div>
+		</div>
 		<div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-5 col-xs-12 ">
 			<form action="adminpanel.php" method="POST">
 			<div class="col-lg-12">
@@ -62,6 +75,13 @@
 				
 			</div>
 			</form>
+		</div>
+		<div class="col-md-12 col-xs-12">
+			<center><h3>Colaboradores</h3></center>
+			<hr />
+			<ul>
+				<?php echo $list2; ?>
+			</ul>
 		</div>
 		</div>
 
