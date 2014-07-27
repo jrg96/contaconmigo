@@ -1,6 +1,7 @@
 <?php include 'api_logic.php';
 
-	if (isset($_POST["txt_mail"])){
+	if (isset($_POST["btn_submit"])){
+		echo insertResponse($_POST["req"], $_POST["txt_msg"], $_POST["txt_mail"], $_POST["txt_phone"]);
 	}
 
 ?>
@@ -47,6 +48,7 @@
 	</section>
 	<div class="content" id="info-content">
 		<form action="busqueda.php" method="POST">
+		<input type="hidden" id="id_org" name="id_org" value="" />
 		<span class="glyphicon glyphicon-remove pull-right" id="close" style="margin-right:2em; margin-top:1em; font-size:20px;"></span>
 		<div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-5 col-xs-12 ">
 			<h4 align="center" id="org-name">Nombre de organizacion</h4>
@@ -91,21 +93,21 @@
 			<div>
 				<div class="col-lg-4">
 						<label>Nombre*:</label>
-						<input id="txt_name" type="text" class="form-control" placeholder="Nombre" required/>
+						<input name="txt_name" type="text" class="form-control" placeholder="Nombre" required/>
 				</div>
 				<div class="col-lg-4">
 					<label>Telefono*:</label>
-					<input id="txt_phone" type="text" class="form-control" placeholder="Telefono" required/>
+					<input name="txt_phone" type="text" class="form-control" placeholder="Telefono" required/>
 				</div>
 				<div class="col-lg-4">
 					<label>Correo:</label>
-					<input id="txt_mail" type="mail" class="form-control" placeholder="Correo"/>
+					<input name="txt_mail" type="mail" class="form-control" placeholder="Correo"/>
 				</div>
 				<div class="col-lg-12">
 					<label>Mensaje:</label>
-					<textarea id="txt_msg"  class="form-control" max-length="130" placeholder="Mensaje..." required></textarea>
+					<textarea name="txt_msg"  class="form-control" max-length="130" placeholder="Mensaje..." required></textarea>
 					<br>
-					<button class="btn btn-lg btn-success pull-right" type="submit">Contá Conmigo</button>
+					<button name="btn_submit" class="btn btn-lg btn-success pull-right" type="submit">Contá Conmigo</button>
 					<br>
 					<br>
 					<br>
