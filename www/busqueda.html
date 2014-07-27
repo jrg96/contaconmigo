@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<title>ContáConmigo</title>
+	<!--Bootstrap / css / fonts-->
+	<meta charset="UTF-8"/>		
+	<link rel="stylesheet" type="text/css" href="common/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="common/css/font-awesome.css"/>
+	<link rel="stylesheet" type="text/css" href="common/css/main.css"/>
+	<!--Responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	
+	<script src="common/js/jquery.js"></script>
+	
+	<style type="text/css">
+      #map_canvas { height: 100% }
+    </style>
+	<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBYuhiS0SauIzg3yLxlsIlF4knSwrIW_cU&sensor=true">
+    </script>
+	<script type="text/javascript">
+		var map = null;
+		var markers = [];
+		var circles = [];
+		
+		function initialize() {
+			var mapOptions = {
+				center: new google.maps.LatLng(13.685449, -89.239938),
+				zoom: 18,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			map = new google.maps.Map(document.getElementById("map_canvas"),
+				mapOptions);
+		}
+    </script>
+</head>
+<body onload="initialize()">
+	<!--Menu -->
+	<section class="main-menu">
+		<center><img class="logo" class="pull-left" src="common/img/logo.png" title="ContaConmigo"></center>
+	</section>
+	<!--search -->
+	<div class="searching">
+		<br>
+		<label>Departamento:</label>
+		<div class="input-group margin-botton-sm">
+			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+			<select class="form-control">
+				<option>a</option>
+			</select>
+		</div>
+		<br>
+		<label>Tipo de organizacion:</label>
+		<div class="input-group margin-botton-sm">
+			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+			<select class="form-control">
+				<option>a</option>
+			</select>
+		</div>
+	</div>
+	<!--map -->
+	<div class="map">
+	</div>
+	<div id="map_canvas" ></div>
+</body>
+</html>

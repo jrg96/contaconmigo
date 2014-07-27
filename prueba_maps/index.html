@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<script src="jquery.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="common/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="common/css/main.css"/>
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
@@ -30,8 +32,32 @@
 	<script src="test.js"></script>
   </head>
   <body onload="initialize()">
-	<a id="test_btn" href="#">test AJAX</a>
-	<a id="test_btn2" href="#">test AJAX2</a>
+	<!--Menu -->
+	<section class="main-menu">
+		<center><img class="logo" class="pull-left" src="common/img/logo.png" title="ContaConmigo"></center>
+	</section>
+	<!--search -->
+		<div class="col-xs-12  col-md-12 clearfix searching">
+			<br>
+				<div class="col-md-2"></div>
+				<div class="col-xs-12 col-md-8">
+					<div class="col-xs-12 col-md-6">
+						<label>Departamento:</label>
+							<select class="form-control">
+								<option>a</option>
+							</select>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<label>Tipo de organización:</label>
+							<select class="form-control">
+								<option>a</option>
+							</select>
+					</div>
+				</div>
+		</div>
+	<br>
+	<br>
+	<!--map -->
     <div id="map_canvas" style="width:100%; height:80%"></div>
   </body>
 </html>
