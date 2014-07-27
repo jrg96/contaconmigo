@@ -7,6 +7,10 @@
 		header('Location: login.php');
 	}
 	
+	if (isset($_POST['btn_submit'])){
+		insertRequest($_SESSION['id_org'], $_POST['txt_title'], $_POST['txt_description'], 0);
+	}
+	
 	$requests = requestById($_SESSION['id_org']);
 	$list = "";
 	
@@ -43,19 +47,21 @@
 				</div>
 			</div>
 		<div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-5 col-xs-12 ">
+			<form action="adminpanel.php" method="POST">
 			<div class="col-lg-12">
 				<br>
 				<label>Titulo:</label>
-				<input type="text" class="form-control" placeholder="Titulo" required/>
+				<input name="txt_title" type="text" class="form-control" placeholder="Titulo" required/>
 			</div>
 			<div class="col-lg-12">
 				<br>
 				<label>Descripcion:</label>
-				<textarea class="form-control" placeholder="Descripcion..." required></textarea>
+				<textarea name = "txt_description" class="form-control" placeholder="Descripcion..." required></textarea>
 				<br>
 				<button name="btn_submit" class="btn btn-lg btn-success pull-right" type="submit">Pedir colaboracion</button>
 				
 			</div>
+			</form>
 		</div>
 		</div>
 
