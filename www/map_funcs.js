@@ -21,6 +21,14 @@ function addOrg(lat, lng, radio, name){
 			$("#phone").html(data[2]);
 			$("#mail").html(data[3]);
 			$("#org-name").html(marker.getTitle());
+			
+			$.ajax({
+				url: "php_helpers/get_org_req.php?id=" + id,
+			}).done(function(data2) {
+				alert(data2);
+			});
+			
+			
 			$('#info-content').show('slow');
 		});
 	});
@@ -40,6 +48,7 @@ function addOrg(lat, lng, radio, name){
 	
 	circles.push(orgCircle);
 }
+
 
 function deleteOrgs(){
 	for (var i=0; i<markers.length; i++){
