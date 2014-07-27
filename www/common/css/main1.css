@@ -1,0 +1,30 @@
+body {
+	background-color: #3498db;
+	background-position: center center no-repeat;
+    background-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+img {
+	margin-top: 100px;
+	color: white;
+}
+
+h4 {
+	color: white;
+}
+
+.panel {
+
+	margin-top: 20px;
+	border: none;
+	border-radius: none;
+	box-shadow: none;
+}
+.panel-default > .panel-heading {
+	background-color: transparent;
+	border-color: none;
+	box-shadow: transparent;
+	border: transparent;
+}
+
