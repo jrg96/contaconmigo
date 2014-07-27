@@ -9,10 +9,20 @@ function addOrg(lat, lng, radio, name){
 	markers.push(marker);
 	
 	google.maps.event.addListener(marker, 'click', function() {
-		//alert(mark_id[marker.getTitle()]);
-		$('#info-content').show('slow');
+		var id = mark_id[marker.getTitle()];
 		
-
+		$.ajax({
+			url: "php_helpers/get_org_info_2.php?id=" + id,
+		}).done(function(data) {
+			data = data.split('|');
+			
+			$("#address").html(data[0]);
+			$("#manager").html(data[1]);
+			$("#phone").html(data[2]);
+			$("#mail").html(data[3]);
+		});
+		
+		$('#info-content').show('slow');
 	});
 	
 	var coverArea = {
