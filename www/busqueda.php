@@ -1,7 +1,7 @@
 <?php include 'api_logic.php';
 
 	if (isset($_POST["btn_submit"])){
-		echo insertResponse($_POST["req"], $_POST["txt_msg"], $_POST["txt_mail"], $_POST["txt_phone"]);
+		echo insertResponse($_POST["req"], $_POST['txt_name'] . ', ' . $_POST["txt_msg"], $_POST["txt_mail"], $_POST["txt_phone"]);
 	}
 
 ?>
@@ -121,16 +121,12 @@
 			<br>
 				<div class="col-md-2"></div>
 				<div class="col-xs-12 col-md-8">
-					<div class="col-xs-12 col-md-6">
+					<center>
+					<div>
 						<label>Departamento:</label>
 						<?php echo getStates(); ?>
 					</div>
-					<div class="col-xs-12 col-md-6">
-						<label>Tipo de organización:</label>
-							<select class="form-control">
-								<option>a</option>
-							</select>
-					</div>
+					</center>
 				</div>
 		</div>
 	<br>

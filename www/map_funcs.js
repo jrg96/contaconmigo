@@ -11,6 +11,9 @@ function addOrg(lat, lng, radio, name){
 	google.maps.event.addListener(marker, 'click', function() {
 		var id = mark_id[marker.getTitle()];
 		
+		map.setZoom(12);
+		map.setCenter(marker.getPosition());
+		
 		$.ajax({
 			url: "php_helpers/get_org_info_2.php?id=" + id,
 		}).done(function(data) {
