@@ -1,12 +1,16 @@
-function addOrg(lat, lng, radio){
+function addOrg(lat, lng, radio, name){
 	var LatLong = new google.maps.LatLng(lat, lng);
 	var marker = new google.maps.Marker({
 		position: LatLong,
 		map: map,
-		title:"Aqui desde casa presidencial :D"
+		title: name
 	});
 	
 	markers.push(marker);
+	
+	google.maps.event.addListener(marker, 'click', function() {
+		
+	});
 	
 	var coverArea = {
 		strokeColor: '#FF0000',

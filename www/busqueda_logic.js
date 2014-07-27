@@ -11,8 +11,8 @@ $(document).ready(function() {
 			var i = 0;
 			
 			while (i < orgs.length){
-				addOrg(orgs[i + 1], orgs[i + 2], parseInt(orgs[i + 3]));
-				i +=4;
+				addOrg(orgs[i + 1], orgs[i + 2], parseInt(orgs[i + 3]), orgs[i + 4]);
+				i +=5;
 			}
 		});
 	});
