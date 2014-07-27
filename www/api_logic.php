@@ -229,6 +229,17 @@
 		}
 		return $less;
 	}
+	
+	function login($username, $password){
+		$logged = null;
+		$less="SELECT * FROM users WHERE username='$username'";
+		foreach ($GLOBALS['dbh']->query($less) as $row ) {
+			if ($row["password"] == $password){
+				$logged = $row;
+			}
+		}
+		return $logged;
+	}
 
 	function  requestById($id){
 		$requests=array();

@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	
+	include 'api_logic.php';
+	
+	if (isset($_POST["btn_submit"])){
+		$status = login($_POST["txt_name"], $_POST["txt_password"]);
+		
+		if($status != null){
+			$_SESSION['id_org'] = $status['id'];
+		}
+	}
+	
+?>
+
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
@@ -13,22 +28,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<form>
 		<center><img src="common/img/logo.png"></center>
+		<form action="login.php" method="POST">
 			<div class="panel panel-default">
 				<div class="panel-heading col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-7 col-xs-offset-3">
 						<div>
 						<h4>Usuario:</h4>
-						<input type="email" class="form-control" placeholder="abc@email.com" required/>
+						<input name="txt_name" type="text" class="form-control" placeholder="Usuario" required/>
 						<h4>Contraseña:</h4>
-						<input type="password" class="form-control" placeholder="*****" required/>
+						<input name="txt_password" type="password" class="form-control" placeholder="*****" required/>
 						<br>
-						<button class="btn btn-lg btn-success pull-right" type="submit" name="LogIn">Iniciar Sesión</button>
+						<button name="btn_submit" class="btn btn-lg btn-success pull-right" type="submit" >Iniciar Sesión</button>
 					</div>		
+				</div>
+			</div>
+		</form>
 		</div>
-		</div>
-		</div>
-	</form>
 
 
 	<script src="common/js/bootstrap.js"></script>
