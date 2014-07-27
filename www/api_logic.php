@@ -213,4 +213,20 @@
 		$updateVis=$GLOBALS['dbh']->exec("UPDATE org_request SET visible='".$state."' WHERE id='".$id."'");
 		return $updateVis;
 	}
+
+	function finishRequest(){
+		$finish="SELECT COUNT(*) AS cuenta FROM org_request WHERE visible='0'";
+		foreach ($GLOBALS['dbh']->query($finish) as $row ) {
+			$finish=$row['cuenta'];
+		}
+		return $finish;
+	}
+
+	function lessRequest(){
+		$less="SELECT COUNT(*) AS cuenta FROM org_request WHERE visible='1'";
+		foreach ($GLOBALS['dbh']->query($less) as $row ) {
+			$less=$row['cuenta'];
+		}
+		return $less;
+	}
 ?>
